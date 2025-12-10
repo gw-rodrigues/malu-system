@@ -1,6 +1,7 @@
 import { Toaster } from '@/components/ui/sonner'
 import { fontVariables } from '@/lib/font'
 import ThemeProvider from '@/components/layout/ThemeToggle/theme-provider'
+import QueryProvider from '@/components/providers/query-provider'
 import { cn } from '@/lib/utils'
 import type { Metadata, Viewport } from 'next'
 import NextTopLoader from 'nextjs-toploader'
@@ -44,8 +45,10 @@ export default async function RootLayout({
             disableTransitionOnChange
             enableColorScheme
           >
-            <Toaster />
-            {children}
+            <QueryProvider>
+              <Toaster />
+              {children}
+            </QueryProvider>
           </ThemeProvider>
         </NuqsAdapter>
       </body>
