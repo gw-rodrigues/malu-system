@@ -5,7 +5,14 @@
       {
         "name": "next"
       }
-    ]
+    ],
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"],
+      "@repo/ui/*": ["../../packages/ui/src/*"],
+      "@ui/*": ["src/components/ui/*"],
+      "~/*": ["./public/*"]
+    }
   },
   "include": [
     "**/*.ts",
