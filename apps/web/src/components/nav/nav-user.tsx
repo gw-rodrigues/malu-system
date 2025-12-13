@@ -28,6 +28,7 @@ import {
 import { createClient } from '@/lib/supabase/client'
 import { useRouter } from 'next/navigation'
 import { recentSalesData } from '@/constants/data'
+import { useSignOut } from '@/hooks/api/auth'
 
 interface NavUserProps {
   showAvatar?: boolean
@@ -91,10 +92,11 @@ export function NavUser({
 }: NavUserProps) {
   const { isMobile } = useSidebar()
   const router = useRouter()
-  const handleLogout = async () => {
-    const supabase = createClient()
-    await supabase.auth.signOut()
-    router.push('/sign-in')
+  const signOut = useSignOut()
+
+  async function handleSignOut() {
+    await signOut.mutateAsync()
+    router.push('/auth/login')
   }
 
   return (
@@ -152,7 +154,7 @@ export function NavUser({
               </DropdownMenuItem>
             </DropdownMenuGroup>
             <DropdownMenuSeparator />
-            <DropdownMenuItem onClick={handleLogout}>
+            <DropdownMenuItem onClick={handleSignOut}>
               <IconLogout className="mr-2 h-4 w-4" />
               Log out
             </DropdownMenuItem>

@@ -35,7 +35,7 @@ export const navBarMain: NavBarItem[] = [
     items: [
       {
         title: 'Visão Geral',
-        url: '/dashboard/overview',
+        url: '/overview',
         icon: IconLayoutDashboard,
         shortcut: ['d', 'd'],
         items: [],
@@ -43,7 +43,7 @@ export const navBarMain: NavBarItem[] = [
 
       {
         title: 'Pedidos',
-        url: '/dashboard/#orders',
+        url: '/#orders',
         icon: IconShoppingCart,
         shortcut: ['o', 'o'],
         items: [],
@@ -51,111 +51,111 @@ export const navBarMain: NavBarItem[] = [
 
       {
         title: 'Produtos',
-        url: '/dashboard/product',
+        url: '/product',
         icon: IconTags,
         shortcut: ['p', 'p'],
         items: [
           {
             title: 'Coleções',
-            url: '/dashboard/product/#collections',
+            url: '/product/#collections',
             icon: IconUserEdit,
           },
           {
             title: 'Categorias',
-            url: '/dashboard/product/#categories',
+            url: '/product/#categories',
             icon: IconUserEdit,
           },
           {
             title: 'Variações',
-            url: '/dashboard/product/#variants',
+            url: '/product/#variants',
             icon: IconUserEdit,
           },
         ],
       },
       {
         title: 'Produção',
-        url: '/dashboard/#production',
+        url: '/#production',
         icon: IconBuildingFactory,
         shortcut: ['r', 'r'],
         items: [
           {
             title: 'Lotes',
-            url: '/dashboard/#production/batches',
+            url: '/#production/batches',
             icon: IconUserEdit,
           },
           {
             title: 'Entrada Produção',
-            url: '/dashboard/#production/inbound',
+            url: '/#production/inbound',
             icon: IconUserEdit,
           },
           {
             title: 'Saída Produção',
-            url: '/dashboard/#production/outbound',
+            url: '/#production/outbound',
             icon: IconUserEdit,
           },
         ],
       },
       {
         title: 'Promoções',
-        url: '/dashboard/#promotions',
+        url: '/#promotions',
         icon: IconDiscount,
         shortcut: ['m', 'm'],
         items: [
           {
             title: 'Campanhas',
-            url: '/dashboard/#campaigns',
+            url: '/#campaigns',
             icon: IconUserEdit,
           },
-          { title: 'Cupons', url: '/dashboard/#coupons', icon: IconUserEdit },
+          { title: 'Cupons', url: '/#coupons', icon: IconUserEdit },
         ],
       },
       {
         title: 'Entregas',
-        url: '/dashboard/#deliveries',
+        url: '/#deliveries',
         icon: IconPackage,
         shortcut: ['e', 'e'],
         items: [
           {
             title: 'Pendentes',
-            url: '/dashboard/#deliveries/pending',
+            url: '/#deliveries/pending',
             icon: IconUserEdit,
           },
           {
             title: 'Concluídas',
-            url: '/dashboard/#deliveries/completed',
+            url: '/#deliveries/completed',
             icon: IconUserEdit,
           },
           {
             title: 'Devoluções',
-            url: '/dashboard/#deliveries/returns',
+            url: '/#deliveries/returns',
             icon: IconUserEdit,
           },
         ],
       },
       {
         title: 'Frota',
-        url: '/dashboard/#fleet',
+        url: '/#fleet',
         icon: IconTruck,
         shortcut: ['f', 'f'],
         items: [
           {
             title: 'Condutores',
-            url: '/dashboard/#fleet/#drivers',
+            url: '/#fleet/#drivers',
             icon: IconUserEdit,
           },
           {
             title: 'Veículos',
-            url: '/dashboard/#fleet/#vehicles',
+            url: '/#fleet/#vehicles',
             icon: IconUserEdit,
           },
           {
             title: 'Rotas',
-            url: '/dashboard/#fleet/#routes',
+            url: '/#fleet/#routes',
             icon: IconUserEdit,
           },
           {
             title: 'Gastos Viagem',
-            url: '/dashboard/#fleet/expenses',
+            url: '/#fleet/expenses',
             icon: IconCoin,
           },
         ],
@@ -167,23 +167,23 @@ export const navBarMain: NavBarItem[] = [
     items: [
       {
         title: 'Inventário',
-        url: '/dashboard/inventory',
+        url: '/inventory',
         icon: IconBuildings,
         shortcut: ['i', 'i'],
         items: [
           {
             title: 'Reservas',
-            url: '/dashboard/inventory/#reservations',
+            url: '/inventory/#reservations',
             icon: IconUserEdit,
           },
           {
             title: 'Armazéns',
-            url: '/dashboard/inventory/#warehouses',
+            url: '/inventory/#warehouses',
             icon: IconUserEdit,
           },
           {
             title: 'Movimentos',
-            url: '/dashboard/inventory/#movements',
+            url: '/inventory/#movements',
             icon: IconUserEdit,
           },
         ],
@@ -191,46 +191,46 @@ export const navBarMain: NavBarItem[] = [
 
       {
         title: 'Produção',
-        url: '/dashboard/#production',
+        url: '/#production',
         icon: IconBuildingFactory,
         shortcut: ['r', 'r'],
         items: [
           {
             title: 'Lotes',
-            url: '/dashboard/#production/batches',
+            url: '/#production/batches',
             icon: IconUserEdit,
           },
           {
             title: 'Entrada Produção',
-            url: '/dashboard/#production/inbound',
+            url: '/#production/inbound',
             icon: IconUserEdit,
           },
           {
             title: 'Saída Produção',
-            url: '/dashboard/#production/outbound',
+            url: '/#production/outbound',
             icon: IconUserEdit,
           },
         ],
       },
       {
         title: 'QR Codes',
-        url: '/dashboard/#qrcodes',
+        url: '/#qrcodes',
         icon: IconScan,
         shortcut: ['q', 'r'],
         items: [
           {
             title: 'Produtos',
-            url: '/dashboard/#qrcodes/products',
+            url: '/#qrcodes/products',
             icon: IconQrcode,
           },
           {
             title: 'Lotes',
-            url: '/dashboard/#qrcodes/batches',
+            url: '/#qrcodes/batches',
             icon: IconQrcode,
           },
           {
             title: 'Entregas',
-            url: '/dashboard/#qrcodes/deliveries',
+            url: '/#qrcodes/deliveries',
             icon: IconQrcode,
           },
         ],
@@ -242,56 +242,56 @@ export const navBarMain: NavBarItem[] = [
     items: [
       {
         title: 'Clientes',
-        url: '/dashboard/#customers',
+        url: '/#customers',
         icon: IconUsersGroup,
         shortcut: ['c', 'c'],
         items: [
           {
             title: 'Grupos Clientes',
-            url: '/dashboard/#customers/#customers-groups',
+            url: '/#customers/#customers-groups',
             icon: IconUserEdit,
           },
           {
             title: 'Endereços',
-            url: '/dashboard/#customers/#customer-addresses',
+            url: '/#customers/#customer-addresses',
             icon: IconUserEdit,
           },
           {
             title: 'Comissões',
-            url: '/dashboard/#customers/#commissions',
+            url: '/#customers/#commissions',
             icon: IconPercentage,
           },
           {
             title: 'Pagamentos',
-            url: '/dashboard/#customers/#payments',
+            url: '/#customers/#payments',
             icon: IconCreditCardPay,
           },
           {
             title: 'Regras Comerciais',
-            url: '/dashboard/#customers/#business-rules',
+            url: '/#customers/#business-rules',
             icon: IconSettings2,
           },
         ],
       },
       {
         title: 'Revendedores',
-        url: '/dashboard/#resellers',
+        url: '/#resellers',
         icon: IconUser,
         shortcut: ['r', 'v'],
         items: [
           {
             title: 'Cadastro',
-            url: '/dashboard/#resellers/list',
+            url: '/#resellers/list',
             icon: IconUserEdit,
           },
           {
             title: 'Extratos',
-            url: '/dashboard/#resellers/statements',
+            url: '/#resellers/statements',
             icon: IconReceipt,
           },
           {
             title: 'Saldo Produtos',
-            url: '/dashboard/#resellers/stock',
+            url: '/#resellers/stock',
             icon: IconBoxMultiple,
           },
         ],
@@ -303,63 +303,63 @@ export const navBarMain: NavBarItem[] = [
     items: [
       {
         title: 'Lista Preço',
-        url: '/dashboard/#price-list',
+        url: '/#price-list',
         icon: IconCurrencyDollar,
         shortcut: ['l', 'l'],
         items: [],
       },
       {
         title: 'Relatórios',
-        url: '/dashboard/#reports',
+        url: '/#reports',
         icon: IconChartBar,
         shortcut: ['r', 'p'],
         items: [
           {
             title: 'Vendas',
-            url: '/dashboard/#reports/sales',
+            url: '/#reports/sales',
             icon: IconUserEdit,
           },
           {
             title: 'Inventário',
-            url: '/dashboard/#reports/inventory',
+            url: '/#reports/inventory',
             icon: IconUserEdit,
           },
           {
             title: 'Produção',
-            url: '/dashboard/#reports/production',
+            url: '/#reports/production',
             icon: IconUserEdit,
           },
           {
             title: 'Entregas',
-            url: '/dashboard/#reports/deliveries',
+            url: '/#reports/deliveries',
             icon: IconUserEdit,
           },
         ],
       },
       {
         title: 'Financeiro',
-        url: '/dashboard/#finance',
+        url: '/#finance',
         icon: IconWallet,
         shortcut: ['f', 'n'],
         items: [
           {
             title: 'Contas a Receber',
-            url: '/dashboard/#finance/receivables',
+            url: '/#finance/receivables',
             icon: IconCoin,
           },
           {
             title: 'Contas a Pagar',
-            url: '/dashboard/#finance/payables',
+            url: '/#finance/payables',
             icon: IconCoin,
           },
           {
             title: 'Repasses Revendedores',
-            url: '/dashboard/#finance/reseller-payouts',
+            url: '/#finance/reseller-payouts',
             icon: IconCoin,
           },
           {
             title: 'Caixa Viagens',
-            url: '/dashboard/#finance/fleet-cash',
+            url: '/#finance/fleet-cash',
             icon: IconWallet,
           },
         ],
@@ -373,68 +373,68 @@ export const navBarSecondary: NavBarItem = {
   items: [
     {
       title: 'Configurações',
-      url: '/dashboard/#settings',
+      url: '/#settings',
       icon: IconSettings,
       shortcut: ['s', 's'],
       isActive: false,
       items: [
         {
           title: 'Usuários',
-          url: '/dashboard/#settings/users',
+          url: '/#settings/users',
           icon: IconUserEdit,
         },
         {
           title: 'Papéis',
-          url: '/dashboard/#settings/roles',
+          url: '/#settings/roles',
           icon: IconUserEdit,
         },
         {
           title: 'Permissões',
-          url: '/dashboard/#settings/permissions',
+          url: '/#settings/permissions',
           icon: IconLock,
         },
         {
           title: 'Preferências',
-          url: '/dashboard/#settings/preferences',
+          url: '/#settings/preferences',
           icon: IconUserEdit,
         },
         {
           title: 'Integrações',
-          url: '/dashboard/#settings/integrations',
+          url: '/#settings/integrations',
           icon: IconUserEdit,
         },
         {
           title: 'Auditoria',
-          url: '/dashboard/#settings/audit',
+          url: '/#settings/audit',
           icon: IconList,
         },
       ],
     },
     {
       title: 'Ajuda',
-      url: '/dashboard/#help',
+      url: '/#help',
       icon: IconHelpCircle,
       shortcut: ['h', 'h'],
       isActive: false,
       items: [
         {
           title: 'Documentação',
-          url: '/dashboard/#help/docs',
+          url: '/#help/docs',
           icon: IconUserEdit,
         },
         {
           title: 'Tutoriais',
-          url: '/dashboard/#help/tutorials',
+          url: '/#help/tutorials',
           icon: IconUserEdit,
         },
         {
           title: 'Contatar Suporte',
-          url: '/dashboard/#help/support',
+          url: '/#help/support',
           icon: IconUserEdit,
         },
         {
           title: 'Logs do Sistema',
-          url: '/dashboard/#help/logs',
+          url: '/#help/logs',
           icon: IconUserEdit,
         },
       ],
