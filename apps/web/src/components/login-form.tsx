@@ -8,6 +8,7 @@ import {
 } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
+import { Spinner } from '@/components/ui/spinner'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { useState } from 'react'
@@ -102,7 +103,7 @@ export function LoginForm({
               </div>
               {signIn.isError && <p className="text-sm text-red-500">{signIn.error?.message}</p>}
               <Button type="submit" className="w-full" disabled={signIn.isPending}>
-                {signIn.isPending ? 'Logging in...' : 'Login'}
+                {signIn.isPending ? <Spinner /> : 'Entrar'}
               </Button>
               <Link
                 href="/auth/forgot-password"
