@@ -6,12 +6,14 @@ import {
     createProductService,
     getCollections,
     getCategories,
-    getVariants
+    getVariants,
+    ProductFilters,
+    ProductService
 } from './services'
 
 // --- Products ---
 
-export function useProducts(filters: string = '') {
+export function useProducts(filters: ProductFilters) {
     return useQuery({
         queryKey: queryKeys.commercial.products.list(filters),
         queryFn: () => getProducts(filters),
@@ -21,12 +23,12 @@ export function useProducts(filters: string = '') {
 export function useProduct(id: string) {
     return useQuery({
         queryKey: queryKeys.commercial.products.detail(id),
-        queryFn: () => getProduct(id),
+        queryFn: async () => getProduct(id),
         enabled: !!id,
     })
 }
 
-export function useCreateProduct() {
+export function useCreateProduct(productService: ProductService) {
     const queryClient = useQueryClient()
     return useMutation({
         mutationFn: createProductService,

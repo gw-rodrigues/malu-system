@@ -7,7 +7,7 @@ import { FormTextarea } from '@/components/forms/form-textarea';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Form } from '@/components/ui/form';
-import { Product } from '@/constants/mock-api';
+import { Product } from '@/types/data-product';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useRouter } from 'next/navigation';
 import { useForm } from 'react-hook-form';
@@ -51,8 +51,8 @@ export default function ProductForm({
   pageTitle: string;
 }) {
   const defaultValues = {
-    name: initialData?.name || '',
-    category: initialData?.category || '',
+    name: initialData?.title || '',
+    category: initialData?.collection || '',
     price: initialData?.price || undefined,
     description: initialData?.description || ''
   };
@@ -67,7 +67,7 @@ export default function ProductForm({
   function onSubmit(values: z.infer<typeof formSchema>) {
     // Form submission logic would be implemented here
     console.log(values);
-    router.push('/dashboard/product');
+    router.push('/product');
   }
 
   return (

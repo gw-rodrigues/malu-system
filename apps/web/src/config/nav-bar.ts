@@ -31,7 +31,7 @@ import {
 
 export const navBarMain: NavBarItem[] = [
   {
-    title: 'Operações Comerciais',
+    title: 'Painel Controle',
     items: [
       {
         title: 'Visão Geral',
@@ -40,98 +40,78 @@ export const navBarMain: NavBarItem[] = [
         shortcut: ['d', 'd'],
         items: [],
       },
-
-      {
-        title: 'Pedidos',
-        url: '/#orders',
-        icon: IconShoppingCart,
-        shortcut: ['o', 'o'],
-        items: [],
-      },
-
+    ],
+  },
+  {
+    title: 'Operações Comerciais',
+    items: [
+      // {
+      //   title: 'Pedidos',
+      //   url: '/#orders',
+      //   icon: IconShoppingCart,
+      //   shortcut: ['o', 'o'],
+      //   items: [],
+      // },
       {
         title: 'Produtos',
         url: '/product',
         icon: IconTags,
         shortcut: ['p', 'p'],
-        items: [
-          {
-            title: 'Coleções',
-            url: '/product/#collections',
-            icon: IconUserEdit,
-          },
-          {
-            title: 'Categorias',
-            url: '/product/#categories',
-            icon: IconUserEdit,
-          },
-          {
-            title: 'Variações',
-            url: '/product/#variants',
-            icon: IconUserEdit,
-          },
-        ],
+        // items: [
+        //   {
+        //     title: 'Coleções',
+        //     url: '/product/#collections',
+        //     icon: IconUserEdit,
+        //   },
+        //   {
+        //     title: 'Categorias',
+        //     url: '/product/#categories',
+        //     icon: IconUserEdit,
+        //   },
+        //   {
+        //     title: 'Variações',
+        //     url: '/product/#variants',
+        //     icon: IconUserEdit,
+        //   },
+        // ],
       },
-      {
-        title: 'Produção',
-        url: '/#production',
-        icon: IconBuildingFactory,
-        shortcut: ['r', 'r'],
-        items: [
-          {
-            title: 'Lotes',
-            url: '/#production/batches',
-            icon: IconUserEdit,
-          },
-          {
-            title: 'Entrada Produção',
-            url: '/#production/inbound',
-            icon: IconUserEdit,
-          },
-          {
-            title: 'Saída Produção',
-            url: '/#production/outbound',
-            icon: IconUserEdit,
-          },
-        ],
-      },
-      {
-        title: 'Promoções',
-        url: '/#promotions',
-        icon: IconDiscount,
-        shortcut: ['m', 'm'],
-        items: [
-          {
-            title: 'Campanhas',
-            url: '/#campaigns',
-            icon: IconUserEdit,
-          },
-          { title: 'Cupons', url: '/#coupons', icon: IconUserEdit },
-        ],
-      },
-      {
-        title: 'Entregas',
-        url: '/#deliveries',
-        icon: IconPackage,
-        shortcut: ['e', 'e'],
-        items: [
-          {
-            title: 'Pendentes',
-            url: '/#deliveries/pending',
-            icon: IconUserEdit,
-          },
-          {
-            title: 'Concluídas',
-            url: '/#deliveries/completed',
-            icon: IconUserEdit,
-          },
-          {
-            title: 'Devoluções',
-            url: '/#deliveries/returns',
-            icon: IconUserEdit,
-          },
-        ],
-      },
+      // {
+      //   title: 'Promoções',
+      //   url: '/#promotions',
+      //   icon: IconDiscount,
+      //   shortcut: ['m', 'm'],
+      //   items: [
+      //     {
+      //       title: 'Campanhas',
+      //       url: '/#campaigns',
+      //       icon: IconUserEdit,
+      //     },
+      //     { title: 'Cupons', url: '/#coupons', icon: IconUserEdit },
+      //   ],
+      // },
+      // {
+      //   title: 'Entregas',
+      //   url: '/#deliveries',
+      //   icon: IconPackage,
+      //   shortcut: ['e', 'e'],
+      //   items: [
+      //     {
+      //       title: 'Pendentes',
+      //       url: '/#deliveries/pending',
+      //       icon: IconUserEdit,
+      //     },
+      //     {
+      //       title: 'Concluídas',
+      //       url: '/#deliveries/completed',
+      //       icon: IconUserEdit,
+      //     },
+      //     {
+      //       title: 'Devoluções',
+      //       url: '/#deliveries/returns',
+      //       icon: IconUserEdit,
+      //     },
+      //   ],
+      // },
       {
         title: 'Frota',
         url: '/#fleet',
@@ -148,11 +128,11 @@ export const navBarMain: NavBarItem[] = [
             url: '/#fleet/#vehicles',
             icon: IconUserEdit,
           },
-          {
-            title: 'Rotas',
-            url: '/#fleet/#routes',
-            icon: IconUserEdit,
-          },
+          // {
+          //   title: 'Rotas',
+          //   url: '/#fleet/#routes',
+          //   icon: IconUserEdit,
+          // },
           {
             title: 'Gastos Viagem',
             url: '/#fleet/expenses',
@@ -171,16 +151,16 @@ export const navBarMain: NavBarItem[] = [
         icon: IconBuildings,
         shortcut: ['i', 'i'],
         items: [
-          {
-            title: 'Reservas',
-            url: '/inventory/#reservations',
-            icon: IconUserEdit,
-          },
-          {
-            title: 'Armazéns',
-            url: '/inventory/#warehouses',
-            icon: IconUserEdit,
-          },
+          // {
+          //   title: 'Reservas',
+          //   url: '/inventory/#reservations',
+          //   icon: IconUserEdit,
+          // },
+          // {
+          //   title: 'Armazéns',
+          //   url: '/inventory/#warehouses',
+          //   icon: IconUserEdit,
+          // },
           {
             title: 'Movimentos',
             url: '/inventory/#movements',
@@ -195,16 +175,16 @@ export const navBarMain: NavBarItem[] = [
         icon: IconBuildingFactory,
         shortcut: ['r', 'r'],
         items: [
-          {
-            title: 'Lotes',
-            url: '/#production/batches',
-            icon: IconUserEdit,
-          },
-          {
-            title: 'Entrada Produção',
-            url: '/#production/inbound',
-            icon: IconUserEdit,
-          },
+          // {
+          //   title: 'Lotes',
+          //   url: '/#production/batches',
+          //   icon: IconUserEdit,
+          // },
+          // {
+          //   title: 'Entrada Produção',
+          //   url: '/#production/inbound',
+          //   icon: IconUserEdit,
+          // },
           {
             title: 'Saída Produção',
             url: '/#production/outbound',
@@ -212,67 +192,67 @@ export const navBarMain: NavBarItem[] = [
           },
         ],
       },
-      {
-        title: 'QR Codes',
-        url: '/#qrcodes',
-        icon: IconScan,
-        shortcut: ['q', 'r'],
-        items: [
-          {
-            title: 'Produtos',
-            url: '/#qrcodes/products',
-            icon: IconQrcode,
-          },
-          {
-            title: 'Lotes',
-            url: '/#qrcodes/batches',
-            icon: IconQrcode,
-          },
-          {
-            title: 'Entregas',
-            url: '/#qrcodes/deliveries',
-            icon: IconQrcode,
-          },
-        ],
-      },
+      // {
+      //   title: 'QR Codes',
+      //   url: '/#qrcodes',
+      //   icon: IconScan,
+      //   shortcut: ['q', 'r'],
+      //   items: [
+      //     {
+      //       title: 'Produtos',
+      //       url: '/#qrcodes/products',
+      //       icon: IconQrcode,
+      //     },
+      //     {
+      //       title: 'Lotes',
+      //       url: '/#qrcodes/batches',
+      //       icon: IconQrcode,
+      //     },
+      //     {
+      //       title: 'Entregas',
+      //       url: '/#qrcodes/deliveries',
+      //       icon: IconQrcode,
+      //     },
+      //   ],
+      // },
     ],
   },
   {
     title: 'CRM & Regras',
     items: [
-      {
-        title: 'Clientes',
-        url: '/#customers',
-        icon: IconUsersGroup,
-        shortcut: ['c', 'c'],
-        items: [
-          {
-            title: 'Grupos Clientes',
-            url: '/#customers/#customers-groups',
-            icon: IconUserEdit,
-          },
-          {
-            title: 'Endereços',
-            url: '/#customers/#customer-addresses',
-            icon: IconUserEdit,
-          },
-          {
-            title: 'Comissões',
-            url: '/#customers/#commissions',
-            icon: IconPercentage,
-          },
-          {
-            title: 'Pagamentos',
-            url: '/#customers/#payments',
-            icon: IconCreditCardPay,
-          },
-          {
-            title: 'Regras Comerciais',
-            url: '/#customers/#business-rules',
-            icon: IconSettings2,
-          },
-        ],
-      },
+      // {
+      //   title: 'Clientes',
+      //   url: '/#customers',
+      //   icon: IconUsersGroup,
+      //   shortcut: ['c', 'c'],
+      //   items: [
+      //     {
+      //       title: 'Grupos Clientes',
+      //       url: '/#customers/#customers-groups',
+      //       icon: IconUserEdit,
+      //     },
+      //     {
+      //       title: 'Endereços',
+      //       url: '/#customers/#customer-addresses',
+      //       icon: IconUserEdit,
+      //     },
+      //     {
+      //       title: 'Comissões',
+      //       url: '/#customers/#commissions',
+      //       icon: IconPercentage,
+      //     },
+      //     {
+      //       title: 'Pagamentos',
+      //       url: '/#customers/#payments',
+      //       icon: IconCreditCardPay,
+      //     },
+      //     {
+      //       title: 'Regras Comerciais',
+      //       url: '/#customers/#business-rules',
+      //       icon: IconSettings2,
+      //     },
+      //   ],
+      // },
       {
         title: 'Revendedores',
         url: '/#resellers',
@@ -294,6 +274,11 @@ export const navBarMain: NavBarItem[] = [
             url: '/#resellers/stock',
             icon: IconBoxMultiple,
           },
+          {
+            title: 'Comissões',
+            url: '/#resellers/commissions',
+            icon: IconPercentage,
+          },
         ],
       },
     ],
@@ -301,29 +286,29 @@ export const navBarMain: NavBarItem[] = [
   {
     title: 'Fluxo Financeiro',
     items: [
-      {
-        title: 'Lista Preço',
-        url: '/#price-list',
-        icon: IconCurrencyDollar,
-        shortcut: ['l', 'l'],
-        items: [],
-      },
+      // {
+      //   title: 'Lista Preço',
+      //   url: '/#price-list',
+      //   icon: IconCurrencyDollar,
+      //   shortcut: ['l', 'l'],
+      //   items: [],
+      // },
       {
         title: 'Relatórios',
         url: '/#reports',
         icon: IconChartBar,
         shortcut: ['r', 'p'],
         items: [
-          {
-            title: 'Vendas',
-            url: '/#reports/sales',
-            icon: IconUserEdit,
-          },
-          {
-            title: 'Inventário',
-            url: '/#reports/inventory',
-            icon: IconUserEdit,
-          },
+          // {
+          //   title: 'Vendas',
+          //   url: '/#reports/sales',
+          //   icon: IconUserEdit,
+          // },
+          // {
+          //   title: 'Inventário',
+          //   url: '/#reports/inventory',
+          //   icon: IconUserEdit,
+          // },
           {
             title: 'Produção',
             url: '/#reports/production',
@@ -336,34 +321,34 @@ export const navBarMain: NavBarItem[] = [
           },
         ],
       },
-      {
-        title: 'Financeiro',
-        url: '/#finance',
-        icon: IconWallet,
-        shortcut: ['f', 'n'],
-        items: [
-          {
-            title: 'Contas a Receber',
-            url: '/#finance/receivables',
-            icon: IconCoin,
-          },
-          {
-            title: 'Contas a Pagar',
-            url: '/#finance/payables',
-            icon: IconCoin,
-          },
-          {
-            title: 'Repasses Revendedores',
-            url: '/#finance/reseller-payouts',
-            icon: IconCoin,
-          },
-          {
-            title: 'Caixa Viagens',
-            url: '/#finance/fleet-cash',
-            icon: IconWallet,
-          },
-        ],
-      },
+      // {
+      //   title: 'Financeiro',
+      //   url: '/#finance',
+      //   icon: IconWallet,
+      //   shortcut: ['f', 'n'],
+      //   items: [
+      //     {
+      //       title: 'Contas a Receber',
+      //       url: '/#finance/receivables',
+      //       icon: IconCoin,
+      //     },
+      //     {
+      //       title: 'Contas a Pagar',
+      //       url: '/#finance/payables',
+      //       icon: IconCoin,
+      //     },
+      //     {
+      //       title: 'Repasses Revendedores',
+      //       url: '/#finance/reseller-payouts',
+      //       icon: IconCoin,
+      //     },
+      //     {
+      //       title: 'Caixa Viagens',
+      //       url: '/#finance/fleet-cash',
+      //       icon: IconWallet,
+      //     },
+      //   ],
+      // },
     ],
   },
 ]
@@ -373,7 +358,7 @@ export const navBarSecondary: NavBarItem = {
   items: [
     {
       title: 'Configurações',
-      url: '/#settings',
+      url: '/settings',
       icon: IconSettings,
       shortcut: ['s', 's'],
       isActive: false,
@@ -383,61 +368,61 @@ export const navBarSecondary: NavBarItem = {
           url: '/#settings/users',
           icon: IconUserEdit,
         },
-        {
-          title: 'Papéis',
-          url: '/#settings/roles',
-          icon: IconUserEdit,
-        },
-        {
-          title: 'Permissões',
-          url: '/#settings/permissions',
-          icon: IconLock,
-        },
-        {
-          title: 'Preferências',
-          url: '/#settings/preferences',
-          icon: IconUserEdit,
-        },
-        {
-          title: 'Integrações',
-          url: '/#settings/integrations',
-          icon: IconUserEdit,
-        },
-        {
-          title: 'Auditoria',
-          url: '/#settings/audit',
-          icon: IconList,
-        },
+        // {
+        //   title: 'Papéis',
+        //   url: '/#settings/roles',
+        //   icon: IconUserEdit,
+        // },
+        // {
+        //   title: 'Permissões',
+        //   url: '/#settings/permissions',
+        //   icon: IconLock,
+        // },
+        // {
+        //   title: 'Preferências',
+        //   url: '/#settings/preferences',
+        //   icon: IconUserEdit,
+        // },
+        // {
+        //   title: 'Integrações',
+        //   url: '/#settings/integrations',
+        //   icon: IconUserEdit,
+        // },
+        // {
+        //   title: 'Auditoria',
+        //   url: '/#settings/audit',
+        //   icon: IconList,
+        // },
       ],
     },
     {
       title: 'Ajuda',
-      url: '/#help',
+      url: '/help',
       icon: IconHelpCircle,
       shortcut: ['h', 'h'],
       isActive: false,
-      items: [
-        {
-          title: 'Documentação',
-          url: '/#help/docs',
-          icon: IconUserEdit,
-        },
-        {
-          title: 'Tutoriais',
-          url: '/#help/tutorials',
-          icon: IconUserEdit,
-        },
-        {
-          title: 'Contatar Suporte',
-          url: '/#help/support',
-          icon: IconUserEdit,
-        },
-        {
-          title: 'Logs do Sistema',
-          url: '/#help/logs',
-          icon: IconUserEdit,
-        },
-      ],
+      // items: [
+      //   {
+      //     title: 'Documentação',
+      //     url: '/#help/docs',
+      //     icon: IconUserEdit,
+      //   },
+      //   {
+      //     title: 'Tutoriais',
+      //     url: '/#help/tutorials',
+      //     icon: IconUserEdit,
+      //   },
+      //   {
+      //     title: 'Contatar Suporte',
+      //     url: '/#help/support',
+      //     icon: IconUserEdit,
+      //   },
+      //   {
+      //     title: 'Logs do Sistema',
+      //     url: '/#help/logs',
+      //     icon: IconUserEdit,
+      //   },
+      // ],
     },
   ],
 }

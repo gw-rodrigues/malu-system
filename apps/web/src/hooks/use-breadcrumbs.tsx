@@ -50,7 +50,5 @@ export function useBreadcrumbs() {
     })
   }, [pathname])
 
-  console.log(breadcrumbs)
-
   return breadcrumbs
 }

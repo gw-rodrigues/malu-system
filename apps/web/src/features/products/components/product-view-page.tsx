@@ -1,25 +1,29 @@
-import { fakeProducts, Product } from '@/constants/mock-api';
+'use client'
 import { notFound } from 'next/navigation';
 import ProductForm from './product-form';
+import { useProduct } from '@/hooks/api/commercial/products';
 
 type TProductViewPageProps = {
   productId: string;
 };
 
-export default async function ProductViewPage({
+export default function ProductViewPage({
   productId
 }: TProductViewPageProps) {
-  let product = null;
-  let pageTitle = 'Create New Product';
 
-  if (productId !== 'new') {
-    const data = await fakeProducts.getProductById(Number(productId));
-    product = data.product as Product;
-    if (!product) {
-      notFound();
-    }
-    pageTitle = `Edit Product`;
+  async function getProduct() {
+    const product = await useProduct(productId)
+    return product
   }
 
-  return <ProductForm initialData={product} pageTitle={pageTitle} />;
+  if (productId !== 'new') {
+    const data = getProduct()
+    console.log('product', data)
+    if (!data) {
+      notFound();
+    }
+    return <ProductForm initialData={data} pageTitle='Edit Product' />;
+  }
+
+  return <ProductForm initialData={null} pageTitle='Create New Product' />;
 }
