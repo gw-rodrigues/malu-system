@@ -20,7 +20,7 @@ import {
 import { Eye, EyeClosed } from 'lucide-react'
 import { Tooltip, TooltipContent, TooltipTrigger } from './ui/tooltip'
 import { Item, ItemMedia } from './ui/item'
-import { useSignIn } from '@/hooks/api/auth'
+import { useSignIn } from '@/features/auth/hooks/use-auth'
 import { useTheme } from 'next-themes'
 
 export function LoginForm({
@@ -37,11 +37,11 @@ export function LoginForm({
   const router = useRouter()
   const { resolvedTheme } = useTheme()
 
-  async function handleLogin(e: React.FormEvent) {
+  function handleLogin(e: React.FormEvent) {
     e.preventDefault()
-    await signIn.mutateAsync({ email, password })
-    if (signIn.isError) return
-    router.push('/overview')
+    signIn.mutate({ email, password })
+    // if (signIn.isError) return
+    // router.push('/overview')
   }
 
   return (

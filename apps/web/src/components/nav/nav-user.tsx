@@ -25,10 +25,9 @@ import {
   SidebarMenuItem,
   useSidebar,
 } from '@/components/ui/sidebar'
-import { createClient } from '@/lib/supabase/client'
 import { useRouter } from 'next/navigation'
 import { recentSalesData } from '@/constants/data'
-import { useSignOut } from '@/hooks/api/auth'
+import { useSignOut } from '@/features/auth/hooks/use-auth'
 
 interface NavUserProps {
   showAvatar?: boolean
@@ -94,8 +93,8 @@ export function NavUser({
   const router = useRouter()
   const signOut = useSignOut()
 
-  async function handleSignOut() {
-    await signOut.mutateAsync()
+  function handleSignOut() {
+    signOut.mutate()
     router.push('/auth/login')
   }
 

@@ -1,5 +1,5 @@
 import { createClient } from '@/lib/supabase/client'
-import { SignInParams, ResetPasswordParams, UpdatePasswordParams } from './types'
+import { SignInParams, ResetPasswordParams, UpdatePasswordParams } from '../types'
 
 const supabase = createClient()
 
@@ -31,4 +31,10 @@ export async function updateUser({ password }: UpdatePasswordParams) {
     })
     if (error) throw error
     return data
+}
+
+export async function getUser() {
+    const { data: { user }, error } = await supabase.auth.getUser()
+    if (error) throw error
+    return user
 }

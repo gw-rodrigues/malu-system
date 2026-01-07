@@ -1,9 +1,11 @@
+import { ProductFilters } from "./commercial/products/services";
+
 export const queryKeys = {
     commercial: {
         products: {
             all: ['products'] as const,
             lists: () => [...queryKeys.commercial.products.all, 'list'] as const,
-            list: (filters: string) => [...queryKeys.commercial.products.lists(), { filters }] as const,
+            list: (filters: ProductFilters) => [...queryKeys.commercial.products.lists(), { filters }] as const,
             details: () => [...queryKeys.commercial.products.all, 'detail'] as const,
             detail: (id: string) => [...queryKeys.commercial.products.details(), id] as const,
         },
