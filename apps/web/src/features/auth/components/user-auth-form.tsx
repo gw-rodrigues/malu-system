@@ -1,81 +1,72 @@
 'use client';
-import { Button } from '@/components/ui/button';
-import {
-  Form,
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage
-} from '@/components/ui/form';
-import { Input } from '@/components/ui/input';
-import { zodResolver } from '@hookform/resolvers/zod';
-import { useSearchParams } from 'next/navigation';
-import { useTransition } from 'react';
+
 import { useForm } from 'react-hook-form';
-import { toast } from 'sonner';
+import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
-import GithubSignInButton from './github-auth-button';
+import { Button } from '@/components/ui/button';
 import { FormInput } from '@/components/forms/form-input';
+import { Form } from '@/components/ui/form';
+import { useSignIn } from '../hooks/use-auth';
+import { toast } from 'sonner';
+
 
 const formSchema = z.object({
-  email: z.string().email({ message: 'Enter a valid email address' })
+  email: z.email({ message: 'Insira um email válido' }),
+  password: z.string().min(1, { message: 'Senha é obrigatória' })
 });
 
 type UserFormValue = z.infer<typeof formSchema>;
 
 export default function UserAuthForm() {
-  const searchParams = useSearchParams();
-  const callbackUrl = searchParams.get('callbackUrl');
-  const [loading, startTransition] = useTransition();
-  const defaultValues = {
-    email: 'demo@gmail.com'
-  };
+
   const form = useForm<UserFormValue>({
     resolver: zodResolver(formSchema),
-    defaultValues
+    defaultValues: {
+      email: '',
+      password: ''
+    }
   });
+  const signIn = useSignIn()
 
-  const onSubmit = async (data: UserFormValue) => {
-    startTransition(() => {
-      console.log('continue with email clicked');
-      toast.success('Signed In Successfully!');
-    });
+  const onSubmit = (data: UserFormValue) => {
+    signIn.mutate({ email: data.email, password: data.password }, {
+      onSuccess: () => {
+        form.reset()
+        toast.success('Login realizado com sucesso')
+      },
+      onError: (error) => {
+        toast.error(error.message)
+      }
+    })
   };
 
   return (
     <>
-      <Form
-        form={form}
-        onSubmit={form.handleSubmit(onSubmit)}
-        className='w-full space-y-2'
-      >
-        <FormInput
-          control={form.control}
-          name='email'
-          label='Email'
-          placeholder='Enter your email...'
-          disabled={loading}
-        />
-        <Button
-          disabled={loading}
-          className='mt-2 ml-auto w-full'
-          type='submit'
-        >
-          Continue With Email
+      <Form form={form} onSubmit={form.handleSubmit(onSubmit)} className='w-full space-y-4'>
+        <div className='flex flex-col gap-2'>
+          <FormInput
+            control={form.control}
+            name='email'
+            label='Email'
+            placeholder='Insira seu email...'
+            type='email'
+            disabled={signIn.isPending}
+          />
+          <FormInput
+            control={form.control}
+            name='password'
+            label='Senha'
+            placeholder='Insira sua senha...'
+            type='password'
+            disabled={signIn.isPending}
+          />
+        </div>
+        <Button disabled={signIn.isPending} className='ml-auto w-full' type='submit'>
+          {signIn.isPending ? 'Entrando...' : 'Entrar'}
         </Button>
       </Form>
-      <div className='relative'>
-        <div className='absolute inset-0 flex items-center'>
-          <span className='w-full border-t' />
-        </div>
-        <div className='relative flex justify-center text-xs uppercase'>
-          <span className='bg-background text-muted-foreground px-2'>
-            Or continue with
-          </span>
-        </div>
-      </div>
-      <GithubSignInButton />
+
     </>
   );
 }
+
