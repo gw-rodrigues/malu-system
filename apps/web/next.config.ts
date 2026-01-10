@@ -13,11 +13,10 @@ const nextConfig: NextConfig = {
       {
         protocol: 'https',
         hostname: 'api.slingacademy.com',
-        port: '',
+        pathname: '/public/**',
       }, {
         protocol: 'https',
         hostname: 'medusa-public-images.s3.eu-west-1.amazonaws.com',
-        port: '',
       },
     ],
   },
