@@ -1,10 +1,11 @@
-import { useMutation, useQueryClient, useQuery } from '@tanstack/react-query'
+import { useMutation, useQuery } from '@tanstack/react-query'
 import { useRouter } from 'next/navigation'
+import { toast } from 'sonner'
 import {
-    signInMutation,
-    signOutMutation,
-    resetPasswordMutation,
-    updateUserMutation
+    signInMutationOptions,
+    signOutMutationOptions,
+    resetPasswordMutationOptions,
+    updateUserMutationOptions
 } from '../api/auth.mutations'
 import { userOptions } from '../api/auth.queries'
 
@@ -13,47 +14,53 @@ export function useUser() {
 }
 
 export function useSignIn() {
-    const queryClient = useQueryClient()
     const router = useRouter()
 
-    // We destruct the mutation config to override onSuccess for navigation
-    // But we keep onSettled from the factory.
-    // Actually, useMutation accepts one object. merging is tricky.
-    // Let's us the factory pattern fully.
-
-    // The previous implementation had onSuccess navigation.
-    // We should probably keep that UI logic here in the hook or pass it to the mutation factory?
-    // Rule: "Hooks are thin Data Shapers... connect components to API layer"
-
-    const mutationConfig = signInMutation(queryClient)
-
     return useMutation({
-        ...mutationConfig,
-        onSuccess: (data, variables, context) => {
+        ...signInMutationOptions,
+        onSuccess: () => {
+            toast.success('Login realizado com sucesso')
             router.push('/overview')
-        }
+        },
+        onError: (err) => {
+            toast.error(err.message)
+        },
     })
 }
 
 export function useSignOut() {
-    const queryClient = useQueryClient()
     const router = useRouter()
 
-    const mutationConfig = signOutMutation(queryClient)
-
     return useMutation({
-        ...mutationConfig,
-        onSuccess: (data, variables, context) => {
+        ...signOutMutationOptions,
+        onSuccess: () => {
+            toast.success('Logout realizado com sucesso')
             router.push('/auth/login')
+        },
+        onError: (err) => {
+            toast.error(err.message)
         }
     })
 }
 
 export function useResetPassword() {
-    return useMutation(resetPasswordMutation())
+    return useMutation({
+        ...resetPasswordMutationOptions, onSuccess: () => {
+            toast.success('Senha redefinida com sucesso')
+        }, onError: (err) => {
+            toast.error(err.message)
+        }
+    })
 }
 
 export function useUpdateUser() {
-    const queryClient = useQueryClient()
-    return useMutation(updateUserMutation(queryClient))
+    return useMutation({
+        ...updateUserMutationOptions,
+        onSuccess: () => {
+            toast.success('Profile updated successfully')
+        },
+        onError: (err) => {
+            toast.error(err.message)
+        }
+    })
 }

@@ -3,7 +3,7 @@ import { SignInParams, ResetPasswordParams, UpdatePasswordParams } from '../type
 
 const supabase = createClient()
 
-export async function signInWithPassword({ email, password }: SignInParams) {
+export async function signInWithPasswordService({ email, password }: SignInParams) {
     const { data, error } = await supabase.auth.signInWithPassword({
         email,
         password,
@@ -12,12 +12,12 @@ export async function signInWithPassword({ email, password }: SignInParams) {
     return data
 }
 
-export async function signOut() {
+export async function signOutService() {
     const { error } = await supabase.auth.signOut()
     if (error) throw error
 }
 
-export async function resetPasswordForEmail({ email }: ResetPasswordParams) {
+export async function resetPasswordForEmailService({ email }: ResetPasswordParams) {
     const { data, error } = await supabase.auth.resetPasswordForEmail(email, {
         redirectTo: `${window.location.origin}/auth/update-password`,
     })
@@ -25,7 +25,7 @@ export async function resetPasswordForEmail({ email }: ResetPasswordParams) {
     return data
 }
 
-export async function updateUser({ password }: UpdatePasswordParams) {
+export async function updateUserService({ password }: UpdatePasswordParams) {
     const { data, error } = await supabase.auth.updateUser({
         password
     })
@@ -33,7 +33,7 @@ export async function updateUser({ password }: UpdatePasswordParams) {
     return data
 }
 
-export async function getUser() {
+export async function getUserService() {
     const { data: { user }, error } = await supabase.auth.getUser()
     if (error) throw error
     return user

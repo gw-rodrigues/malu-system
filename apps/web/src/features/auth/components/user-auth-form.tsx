@@ -7,7 +7,6 @@ import { Button } from '@/components/ui/button';
 import { FormInput } from '@/components/forms/form-input';
 import { Form } from '@/components/ui/form';
 import { useSignIn } from '../hooks/use-auth';
-import { toast } from 'sonner';
 
 
 const formSchema = z.object({
@@ -26,17 +25,13 @@ export default function UserAuthForm() {
       password: ''
     }
   });
-  const signIn = useSignIn()
+  const { mutate: signIn, isPending: signInPending } = useSignIn()
 
   const onSubmit = (data: UserFormValue) => {
-    signIn.mutate({ email: data.email, password: data.password }, {
+    signIn({ email: data.email, password: data.password }, {
       onSuccess: () => {
         form.reset()
-        toast.success('Login realizado com sucesso')
       },
-      onError: (error) => {
-        toast.error(error.message)
-      }
     })
   };
 
@@ -50,7 +45,7 @@ export default function UserAuthForm() {
             label='Email'
             placeholder='Insira seu email...'
             type='email'
-            disabled={signIn.isPending}
+            disabled={signInPending}
           />
           <FormInput
             control={form.control}
@@ -58,11 +53,11 @@ export default function UserAuthForm() {
             label='Senha'
             placeholder='Insira sua senha...'
             type='password'
-            disabled={signIn.isPending}
+            disabled={signInPending}
           />
         </div>
-        <Button disabled={signIn.isPending} className='ml-auto w-full' type='submit'>
-          {signIn.isPending ? 'Entrando...' : 'Entrar'}
+        <Button disabled={signInPending} className='ml-auto w-full' type='submit'>
+          {signInPending ? 'Entrando...' : 'Entrar'}
         </Button>
       </Form>
 
