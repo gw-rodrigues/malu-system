@@ -15,35 +15,33 @@ import {
 import { usePathname } from 'next/navigation'
 import Link from 'next/link'
 import { NavItem } from '@/types'
+import { useState } from 'react'
 
 interface NavCollapsibleProps {
   item: NavItem
 }
 
 export function NavCollapsible({ item }: NavCollapsibleProps) {
+  const [isOpen, setIsOpen] = useState(false)
   const pathname = usePathname()
   return (
     <Collapsible
       key={item.title}
-      asChild
-      open={pathname.startsWith(item.url)}
-      defaultOpen={item.isActive}
-      className="group/collapsible"
+      open={isOpen}
+      onOpenChange={setIsOpen}
     >
       <SidebarMenuItem key={item.title}>
         <CollapsibleTrigger asChild>
           <SidebarMenuButton
             tooltip={item.title}
             isActive={pathname === item.url}
-            asChild
           >
-            <Link href={item.url} ref={null}>
-              {item.icon && <item.icon />}
-              <span>{item.title}</span>
-              <IconChevronRight className="ml-auto transition-transform duration-200 group-data-[state=open]/collapsible:rotate-90" />
-            </Link>
+            {item.icon && <item.icon />}
+            <span>{item.title}</span>
+            <IconChevronRight className="ml-auto transition-transform duration-200 group-data-[state=open]/collapsible:rotate-90" />
           </SidebarMenuButton>
         </CollapsibleTrigger>
+
         <CollapsibleContent>
           <SidebarMenuSub>
             {item.items?.map((subItem) => (
@@ -52,8 +50,7 @@ export function NavCollapsible({ item }: NavCollapsibleProps) {
                   asChild
                   isActive={pathname === subItem.url}
                 >
-                  <Link href={subItem.url}>
-                    {/* {subItem.icon && <subItem.icon />} */}
+                  <Link href={subItem.url} title={subItem.title}>
                     <span>{subItem.title}</span>
                   </Link>
                 </SidebarMenuSubButton>
@@ -62,6 +59,6 @@ export function NavCollapsible({ item }: NavCollapsibleProps) {
           </SidebarMenuSub>
         </CollapsibleContent>
       </SidebarMenuItem>
-    </Collapsible>
+    </Collapsible >
   )
 }

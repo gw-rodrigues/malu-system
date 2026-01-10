@@ -17,7 +17,7 @@ export function NavSimple({ item }: NavSimpleProps) {
         tooltip={item.title}
         isActive={pathname === item.url}
       >
-        <Link href={item.url}>
+        <Link href={item.url} title={item.title}>
           {item.icon && <item.icon />}
           <span>{item.title}</span>
         </Link>

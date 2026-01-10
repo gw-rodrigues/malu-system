@@ -25,9 +25,10 @@ import {
   SidebarMenuItem,
   useSidebar,
 } from '@/components/ui/sidebar'
-import { useRouter } from 'next/navigation'
 import { recentSalesData } from '@/constants/data'
 import { useSignOut } from '@/features/auth/hooks/use-auth'
+import { toast } from 'sonner'
+import { Button } from '../ui/button'
 
 interface NavUserProps {
   showAvatar?: boolean
@@ -90,13 +91,7 @@ export function NavUser({
   DropdownMenuContentProps,
 }: NavUserProps) {
   const { isMobile } = useSidebar()
-  const router = useRouter()
-  const signOut = useSignOut()
-
-  function handleSignOut() {
-    signOut.mutate()
-    router.push('/auth/login')
-  }
+  const { mutate: signOut } = useSignOut()
 
   return (
     <SidebarMenu>
@@ -153,9 +148,11 @@ export function NavUser({
               </DropdownMenuItem>
             </DropdownMenuGroup>
             <DropdownMenuSeparator />
-            <DropdownMenuItem onClick={handleSignOut}>
-              <IconLogout className="mr-2 h-4 w-4" />
-              Log out
+            <DropdownMenuItem className="p-0">
+              <Button type="button" onClick={() => signOut()} variant="ghost" className="w-full justify-start">
+                <IconLogout className="h-4 w-4" />
+                Log out
+              </Button>
             </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
