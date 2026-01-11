@@ -1,9 +1,8 @@
-'use client'
+
 import { Metadata } from 'next';
 import Link from 'next/link';
 import UserAuthForm from './user-auth-form';
-import { useTheme } from 'next-themes';
-import Image from 'next/image'
+import Logo from '@/components/logo';
 
 export const metadata: Metadata = {
   title: 'Autenticação',
@@ -11,18 +10,11 @@ export const metadata: Metadata = {
 };
 
 export default function SignInViewPage() {
-  const { resolvedTheme } = useTheme()
-
   return (
     <div className='flex h-full items-center justify-center p-4 lg:p-8'>
       <div className='flex w-full max-w-md flex-col items-center justify-center space-y-6'>
         <div className='flex flex-col items-center space-y-2 text-center'>
-          {resolvedTheme && <Image
-            width={200}
-            height={58}
-            src={(resolvedTheme === 'dark') ? '/logo-dark.svg' : '/logo.svg'}
-            alt="Malu System Logo"
-          />}
+          <Logo />
           <p className='text-muted-foreground text-sm'>
             Faça login para acessar o painel de controle
           </p>
