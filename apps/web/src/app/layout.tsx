@@ -17,6 +17,9 @@ const META_THEME_COLORS = {
 export const metadata: Metadata = {
   title: 'Malu System Dashboard',
   description: 'Malu System Dashboard Application',
+  icons: {
+    icon: '/favicon.ico',
+  },
 }
 
 export const viewport: Viewport = {
